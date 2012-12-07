@@ -35,7 +35,7 @@ KNOWN ISSUES:
 
 *On Ubuntu, automatic mounting of external media will mess up the bootloader, mount the drive manually.
 
-Makefile, linker script and startup code belong to Texas Instruments.
+Makefile, linker and startup code by Mauro Scomparin and others https://github.com/scompo/stellaris-launchpad-template-gcc
 All other code is Copyright 2012 Andrzej Surowiec <emeryth@gmail.com>, released under MIT License.
 http://emerythacks.blogspot.com/
 
