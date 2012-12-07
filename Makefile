@@ -1,8 +1,9 @@
 #******************************************************************************
 #
-# Makefile - Rules for building the boot_usb_msc example.
+# Makefile - Rules for building boot_usb_msc.
 #
-# Copyright (c) 2012 Texas Instruments Incorporated.  All rights reserved.
+# Copyright (c) 2012 Texas Instruments Incorporated.  All rights reserved. 
+# Modified by Andrzej Surowiec <emeryth@gmail.com> 
 # Software License Agreement
 # 
 # Texas Instruments (TI) is supplying this software for use solely and
@@ -53,7 +54,7 @@ VPATH=../../../utils
 IPATH=../../..
 
 #
-# The default rule, which causes the boot_usb_msc example to be built.
+# The default rule, which causes boot_usb_msc to be built.
 #
 all: ${COMPILER}
 all: ${COMPILER}/boot_usb_msc.axf
@@ -71,7 +72,7 @@ ${COMPILER}:
 	@mkdir -p ${COMPILER}
 
 #
-# Rules for building the boot_usb_msc example.
+# Rules for building boot_usb_msc 
 #
 ${COMPILER}/boot_usb_msc.axf: ${COMPILER}/boot_usb_msc.o
 ${COMPILER}/boot_usb_msc.axf: ${COMPILER}/startup_${COMPILER}.o

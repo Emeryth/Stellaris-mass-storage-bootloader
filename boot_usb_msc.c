@@ -65,7 +65,8 @@ unsigned long massStorageEventCallback(void* callback, unsigned long event, unsi
 			break;
 		}
 	case USBD_MSC_EVENT_IDLE:
-		{
+		{	
+			break;
 		}
 	default:
 		{
