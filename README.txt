@@ -23,17 +23,16 @@ HOW TO USE:
  and change it to:
 	FLASH (rx) : ORIGIN = 0x00004000, LENGTH = 0x0003c000
  then rebuild your project
-*Rename the resulting project binary to firmware.bin
 *Plug in your board while holding down SW2, or press the reset button while holding SW2, the system should recognize it as a 512kB mass storage device
  The red LED will blink when the bootloader is running
 *You can download the firmware.bin found on the drive to download the contents of flash memory
-*You can upload your firmware to the board by copying your firmware.bin to the device and overwriting it
+*You can upload your firmware to the board by copying your firmware to the device (the first file you put on the device will be considered new firmware)
 *Safely eject the drive and reset your board, it should jump to your code immediately
 
 UPDATES:
 
-08/12/2012 - Added debug mode that prints out info about reads and writes using UART, to enable it look in the Makefile
-			 Fixed problem when using Thunar to upload firmware
+08/12/2012 - Added debug mode that prints out info about reads and writes using UART, to enable it look in the Makefile. 
+Fixed problem when using Thunar to upload firmware, as a side effect you no longer have to name your file firmware.bin.
 
 			
 
