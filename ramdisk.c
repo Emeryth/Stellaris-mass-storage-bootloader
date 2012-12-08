@@ -36,6 +36,8 @@
 #include "inc/hw_types.h"
 #include "driverlib/flash.h"
 
+#include "utils/uartstdio.h"
+
 #define BLOCK_SIZE 512
 #define FIRMWARE_START_SECTOR (27+firmware_start_cluster*4)
 #define SECTORS_PER_CLUSTER 4
@@ -119,6 +121,10 @@ void massStorageClose(void * drive)
 unsigned long massStorageRead(void * drive, unsigned char *data,unsigned long blockNumber,unsigned long numberOfBlocks)
 {
 	
+#ifdef DEBUG
+	UARTprintf("Read block: %d, no. of blocks: %d\n",blockNumber,numberOfBlocks);
+#endif	
+
 	memset(data,0,BLOCK_SIZE);
 	
 	if (blockNumber==0){
@@ -147,6 +153,19 @@ unsigned long massStorageWrite(void * drive,unsigned char *data,unsigned long bl
 	
 	//FlashProgram((unsigned long*)data,USER_PROGRAM_START+counter,BLOCK_SIZE*numberOfBlocks);
 	//counter+=BLOCK_SIZE*numberOfBlocks;
+	
+#ifdef DEBUG
+	UARTprintf("Write block: %d, no. of blocks: %d\n",blockNumber,numberOfBlocks);
+	
+	int i,j;
+	
+	for (j=0;j<BLOCK_SIZE*numberOfBlocks;j+=16){
+		for (i=0;i<16;i++)
+			UARTprintf("%x ",data[j+i]);
+		UARTprintf("\n");
+	}
+		
+#endif	 
 	
 	if (blockNumber==0){
 		memcpy(bootSector,data,BOOT_LEN);

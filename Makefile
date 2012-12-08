@@ -57,7 +57,10 @@ OD      = ${PREFIX_ARM}-objdump
 # Option arguments for C compiler.
 CFLAGS=-mthumb ${CPU} ${FPU} -Os -ffunction-sections -fdata-sections -MD -std=c99 -Wall -pedantic -c -g
 # Library stuff passed as flags!
-CFLAGS+= -I ${STELLARISWARE_PATH} -DPART_$(PART) -c -DTARGET_IS_BLIZZARD_RA1 -Dgcc
+CFLAGS+= -I ${STELLARISWARE_PATH} -DPART_$(PART) -c -DTARGET_IS_BLIZZARD_RA1 -Dgcc 
+
+#Uncomment this to enable debug:
+#CFLAGS+= -DDEBUG
 
 # Flags for LD
 LFLAGS  = --gc-sections
@@ -97,6 +100,7 @@ STARTUP_FILE = LM4F_startup
 LINKER_FILE = LM4F.ld
 
 SRC = $(wildcard *.c)
+SRC += ../../../utils/uartstdio.c
 OBJS = $(SRC:.c=.o)
 
 #==============================================================================

@@ -30,10 +30,14 @@ HOW TO USE:
 *You can upload your firmware to the board by copying your firmware.bin to the device and overwriting it
 *Safely eject the drive and reset your board, it should jump to your code immediately
 
+UPDATES:
+
+08/12/2012 - Added debug mode that prints out info about reads and writes using UART, to enable it look in the Makefile
+			
 
 KNOWN ISSUES:
 
-*On Ubuntu, automatic mounting of external media will mess up the bootloader, mount the drive manually.
+*The previously reported problem is not the fault of the automounter, but of the Thunar file manager, I am working on a fix
 
 Makefile, linker and startup code by Mauro Scomparin and others https://github.com/scompo/stellaris-launchpad-template-gcc
 All other code is Copyright 2012 Andrzej Surowiec <emeryth@gmail.com>, released under MIT License.

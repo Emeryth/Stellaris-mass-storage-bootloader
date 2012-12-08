@@ -152,7 +152,17 @@ main(void)
 	// on the bus.
 	USBDMSCInit(0, (tUSBDMSCDevice*)&massStroageDevice);
 
+#ifdef DEBUG
+//In debug mode, the bootloader prints out reads and writes via UART	
+	ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+    ROM_GPIOPinConfigure(GPIO_PA0_U0RX);
+    ROM_GPIOPinConfigure(GPIO_PA1_U0TX);
+    ROM_GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+    UARTStdioInit(0);
 	
+	UARTprintf("Starting bootloader.\n");
+	
+#endif
 
 	while(1)
 	{
