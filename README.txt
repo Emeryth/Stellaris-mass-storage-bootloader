@@ -33,11 +33,13 @@ HOW TO USE:
 UPDATES:
 
 08/12/2012 - Added debug mode that prints out info about reads and writes using UART, to enable it look in the Makefile
+			 Fixed problem when using Thunar to upload firmware
+
 			
 
 KNOWN ISSUES:
 
-*The previously reported problem is not the fault of the automounter, but of the Thunar file manager, I am working on a fix
+*On Ubuntu, ejecting the drive will show an error, but that doesn't break anything
 
 Makefile, linker and startup code by Mauro Scomparin and others https://github.com/scompo/stellaris-launchpad-template-gcc
 All other code is Copyright 2012 Andrzej Surowiec <emeryth@gmail.com>, released under MIT License.

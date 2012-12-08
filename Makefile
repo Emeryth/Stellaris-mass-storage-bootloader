@@ -133,6 +133,9 @@ ${PROJECT_NAME}: ${PROJECT_NAME}.axf
 	@echo
 	@echo Creating list file...
 	$(OD) $(ODFLAGS) ${PROJECT_NAME}.axf > ${PROJECT_NAME}.lst
+	@echo
+	@echo Binary size:
+	${PREFIX_ARM}-size ${PROJECT_NAME}.axf
 
 # make clean rule
 clean:
