@@ -14,6 +14,9 @@ INSTALLATION:
 *Run make
 *Flash gcc/boot_usb_msc.bin onto your Launchpad or other Stellaris board
 
+or just use an already built firmware from the "prebuilt" directory
+(Built using YAGARTO GCC 4.6.0)
+
 
 HOW TO USE:
 
@@ -33,6 +36,8 @@ UPDATES:
 
 08/12/2012 - Added debug mode that prints out info about reads and writes using UART, to enable it look in the Makefile. 
 Fixed problem when using Thunar to upload firmware, as a side effect you no longer have to name your file firmware.bin.
+
+09/12/2012 - Added prebuilt bin files, so you can use the bootloader straight away!
 
 			
 
