@@ -32,6 +32,7 @@
 #include "inc/hw_types.h"
 #include "inc/hw_nvic.h"
 #include "inc/hw_gpio.h"
+#include "inc/hw_hibernate.h"
 #include "driverlib/debug.h"
 #include "driverlib/fpu.h"
 #include "driverlib/gpio.h"
@@ -39,6 +40,7 @@
 #include "driverlib/rom.h"
 #include "driverlib/udma.h"
 #include "driverlib/sysctl.h"
+#include "driverlib/hibernate.h"
 #include "utils/uartstdio.h"
 
 #include "usblib/usblib.h"
@@ -114,8 +116,8 @@ main(void)
 	ROM_GPIODirModeSet(GPIO_PORTF_BASE, GPIO_PIN_0, GPIO_DIR_MODE_IN);	
 	ROM_GPIOPadConfigSet(GPIO_PORTF_BASE, GPIO_PIN_0, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
 	
-	//Check if button is pressed, otherwise jump to program
-	if (ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0)){
+	//Check if button is pressed and if we are waking from hibernation, otherwise jump to program
+	if (ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0) || ((HWREG(HIB_RIS) & (HIBERNATE_INT_PIN_WAKE))) ){
 		//Not pressed	
 		CallApplication(USER_PROGRAM_START);
 	}
